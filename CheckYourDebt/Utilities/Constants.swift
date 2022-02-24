@@ -5,7 +5,7 @@
 //  Created by Кирилл Нескоромный on 24.02.2022.
 //
 
-import Foundation
+import UIKit
 
 struct K {
     
@@ -19,6 +19,11 @@ struct K {
         static let lasName = "lastname"
         static let birth = "birthdate"
         static let task = "task"
+    }
+    
+    struct Colors {
+        static let customGreen = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        static let customBlue = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
     }
     
     enum ServiceError: Error {
