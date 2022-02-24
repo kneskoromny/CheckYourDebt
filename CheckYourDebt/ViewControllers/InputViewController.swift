@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class InputViewController: UIViewController {
     
@@ -19,38 +20,48 @@ class InputViewController: UIViewController {
     lazy var birthTF = UIElementsFactory.makeTF(placeholder: "Дата рождения (чч.мм.гггг)")
     
     lazy var sendBtn = UIElementsFactory.makeBtn(action: #selector(action))
+    
+    // MARK: - Combine
+    @Published private var firName = ""
+    @Published private var secName = ""
+    @Published private var lasName = ""
+    @Published private var region = ""
+    @Published private var birth = ""
+    
+    
+    private var validToSubmit: AnyPublisher<Bool, Never> {
+        return Publishers.CombineLatest($firName, $secName)
+            .map { firName, secName in
+                print(firName)
+                return firName != ""
+            }.eraseToAnyPublisher()
+
+    }
+    
+    private var btnSubscriber: AnyCancellable?
 
     // MARK: - View life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureLayout()
-//        let queries = QueryFactory.makePersonQueries(
-//            region: "51", firstName: "Антон", secondName: "Сергеевич", lastName: "Нескоромный", birthDate: "22.02.1992"
-//        )
-//        let queries1 = QueryFactory.makeResultQueries(task: "d48f87d5-b337-4050-a56d-e1e8bb652f4f")
-//        let endPoint = StandardEndpoint(path: K.Path.result, queryItems: queries1)
-//        print(endPoint.url as Any)
-//
-//        let request = StandardRequest(endpoint: endPoint)
-//        let networkService = StandardNetworkService(request: request)
-//
-//        networkService.getData(ResponseModel.self) { result in
-//            switch result {
-//
-//            case .success(let data):
-//                print(data)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+        firstNameTF.delegate = self
+        
+        btnSubscriber = validToSubmit
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: sendBtn)
+            
+        
     }
+    
+    // MARK: - UI actions
+    
     
     // MARK: - Methods
     private func configureLayout() {
         view.addSubview(stackView)
-        stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33).isActive = true
+        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         
@@ -72,6 +83,17 @@ class InputViewController: UIViewController {
     
     @objc func action() {
         print("btn pressed")
+    }
+}
+// MARK: - Text Field Delegate
+extension InputViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let textFieldText = textField.text ?? ""
+        let text = (textFieldText as NSString).replacingCharacters(in: range, with: string)
+        
+        if textField == firstNameTF { firName = text }
+        
+        return true
     }
 }
 
