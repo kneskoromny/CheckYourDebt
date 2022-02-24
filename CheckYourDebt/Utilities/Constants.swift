@@ -20,4 +20,10 @@ struct K {
         static let birth = "birthdate"
         static let task = "task"
     }
+    
+    enum Path: String {
+        case search = "/api/v1.0/search/physical"
+        case status = "/api/v1.0/status"
+        case result = "/api/v1.0/result"
+    }
 }

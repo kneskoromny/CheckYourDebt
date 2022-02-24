@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum Path: String {
-    case search = "/api/v1.0/search/physical"
-    case status = "/api/v1.0/status"
-    case result = "/api/v1.0/result"
-}
-
 // MARK: - Endpoint
 protocol Endpoint {
     var path: String { get set }
@@ -21,8 +15,6 @@ protocol Endpoint {
     var scheme: String? { get }
     var host: String? { get }
     var url: URL? { get }
-    
-    
 }
 
 extension Endpoint {
@@ -37,7 +29,7 @@ extension Endpoint {
     }
 }
 
-// MARK: - SearchEndpoint
+// MARK: - StandardEndpoint
 struct StandardEndpoint: Endpoint {
     var scheme: String? = "https"
     var host: String? = "api-ip.fssp.gov.ru"
@@ -45,7 +37,7 @@ struct StandardEndpoint: Endpoint {
     
     var queryItems: [URLQueryItem]?
     
-    init(path: Path, queryItems: [URLQueryItem]) {
+    init(path: K.Path, queryItems: [URLQueryItem]) {
         self.queryItems = queryItems
         self.path = path.rawValue
     }
