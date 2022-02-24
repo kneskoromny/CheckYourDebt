@@ -17,6 +17,9 @@
 		F7F4FA4827C76B0D00EF9022 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA4727C76B0D00EF9022 /* EndPoint.swift */; };
 		F7F4FA4A27C781E700EF9022 /* QueryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA4927C781E700EF9022 /* QueryFactory.swift */; };
 		F7F4FA4D27C7893800EF9022 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA4C27C7893800EF9022 /* Constants.swift */; };
+		F7F4FA4F27C7918800EF9022 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA4E27C7918800EF9022 /* RequestFactory.swift */; };
+		F7F4FA5127C7933600EF9022 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA5027C7933600EF9022 /* NetworkService.swift */; };
+		F7F4FA5427C797FB00EF9022 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA5327C797FB00EF9022 /* ResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		F7F4FA4727C76B0D00EF9022 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		F7F4FA4927C781E700EF9022 /* QueryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryFactory.swift; sourceTree = "<group>"; };
 		F7F4FA4C27C7893800EF9022 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F7F4FA4E27C7918800EF9022 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
+		F7F4FA5027C7933600EF9022 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F7F4FA5327C797FB00EF9022 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 			children = (
 				F7F4FA2E27C7687700EF9022 /* AppDelegate.swift */,
 				F7F4FA3027C7687700EF9022 /* SceneDelegate.swift */,
+				F7F4FA5227C797B800EF9022 /* Models */,
 				F7F4FA4B27C7892500EF9022 /* Utilities */,
 				F7F4FA4627C76AF200EF9022 /* Networking */,
 				F7F4FA4527C76A0000EF9022 /* ViewModels */,
@@ -99,6 +106,8 @@
 			children = (
 				F7F4FA4727C76B0D00EF9022 /* EndPoint.swift */,
 				F7F4FA4927C781E700EF9022 /* QueryFactory.swift */,
+				F7F4FA4E27C7918800EF9022 /* RequestFactory.swift */,
+				F7F4FA5027C7933600EF9022 /* NetworkService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -109,6 +118,14 @@
 				F7F4FA4C27C7893800EF9022 /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F7F4FA5227C797B800EF9022 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F7F4FA5327C797FB00EF9022 /* ResponseModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,8 +203,11 @@
 				F7F4FA2F27C7687700EF9022 /* AppDelegate.swift in Sources */,
 				F7F4FA4827C76B0D00EF9022 /* EndPoint.swift in Sources */,
 				F7F4FA3127C7687700EF9022 /* SceneDelegate.swift in Sources */,
+				F7F4FA5127C7933600EF9022 /* NetworkService.swift in Sources */,
 				F7F4FA4D27C7893800EF9022 /* Constants.swift in Sources */,
 				F7F4FA4427C769FC00EF9022 /* InputViewModel.swift in Sources */,
+				F7F4FA4F27C7918800EF9022 /* RequestFactory.swift in Sources */,
+				F7F4FA5427C797FB00EF9022 /* ResponseModel.swift in Sources */,
 				F7F4FA4A27C781E700EF9022 /* QueryFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

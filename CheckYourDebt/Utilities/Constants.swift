@@ -21,9 +21,14 @@ struct K {
         static let task = "task"
     }
     
+    enum ServiceError: Error {
+        case unexpectedResponse
+    }
+    
     enum Path: String {
         case search = "/api/v1.0/search/physical"
         case status = "/api/v1.0/status"
         case result = "/api/v1.0/result"
     }
+    
 }
