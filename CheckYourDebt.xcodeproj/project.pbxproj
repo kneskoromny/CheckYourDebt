@@ -21,6 +21,7 @@
 		F7F4FA5127C7933600EF9022 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA5027C7933600EF9022 /* NetworkService.swift */; };
 		F7F4FA5427C797FB00EF9022 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA5327C797FB00EF9022 /* ResponseModel.swift */; };
 		F7F4FA5627C7B79000EF9022 /* UIElementsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA5527C7B79000EF9022 /* UIElementsFactory.swift */; };
+		F7F4FA5827C8A94100EF9022 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA5727C8A94100EF9022 /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		F7F4FA5027C7933600EF9022 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F7F4FA5327C797FB00EF9022 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		F7F4FA5527C7B79000EF9022 /* UIElementsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElementsFactory.swift; sourceTree = "<group>"; };
+		F7F4FA5727C8A94100EF9022 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			children = (
 				F7F4FA4C27C7893800EF9022 /* Constants.swift */,
 				F7F4FA5527C7B79000EF9022 /* UIElementsFactory.swift */,
+				F7F4FA5727C8A94100EF9022 /* Box.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				F7F4FA4427C769FC00EF9022 /* InputViewModel.swift in Sources */,
 				F7F4FA5627C7B79000EF9022 /* UIElementsFactory.swift in Sources */,
 				F7F4FA4F27C7918800EF9022 /* RequestFactory.swift in Sources */,
+				F7F4FA5827C8A94100EF9022 /* Box.swift in Sources */,
 				F7F4FA5427C797FB00EF9022 /* ResponseModel.swift in Sources */,
 				F7F4FA4A27C781E700EF9022 /* QueryFactory.swift in Sources */,
 			);

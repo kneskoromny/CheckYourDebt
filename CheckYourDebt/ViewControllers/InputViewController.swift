@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import Combine
 
-class InputViewController: UIViewController {
+final class InputViewController: UIViewController {
     
     // MARK: - UI elements
     lazy var stackView = UIElementsFactory.makeStackView(axis: .vertical)
@@ -21,24 +20,8 @@ class InputViewController: UIViewController {
     
     lazy var sendBtn = UIElementsFactory.makeBtn(action: #selector(action))
     
-    // MARK: - Combine
-    @Published private var firName = ""
-    @Published private var secName = ""
-    @Published private var lasName = ""
-    @Published private var region = ""
-    @Published private var birth = ""
-    
-    
-    private var validToSubmit: AnyPublisher<Bool, Never> {
-        return Publishers.CombineLatest($firName, $secName)
-            .map { firName, secName in
-                print(firName)
-                return firName != ""
-            }.eraseToAnyPublisher()
-
-    }
-    
-    private var btnSubscriber: AnyCancellable?
+    // MARK: - Dependencies
+    private let viewModel = InputViewModel()
 
     // MARK: - View life Cycle
     override func viewDidLoad() {
@@ -46,11 +29,6 @@ class InputViewController: UIViewController {
         
         configureLayout()
         firstNameTF.delegate = self
-        
-        btnSubscriber = validToSubmit
-            .receive(on: RunLoop.main)
-            .assign(to: \.isEnabled, on: sendBtn)
-            
         
     }
     
@@ -91,7 +69,7 @@ extension InputViewController: UITextFieldDelegate {
         let textFieldText = textField.text ?? ""
         let text = (textFieldText as NSString).replacingCharacters(in: range, with: string)
         
-        if textField == firstNameTF { firName = text }
+        //if textField == firstNameTF { firName = text }
         
         return true
     }

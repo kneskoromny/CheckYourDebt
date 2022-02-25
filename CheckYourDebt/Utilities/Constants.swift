@@ -36,4 +36,12 @@ struct K {
         case result = "/api/v1.0/result"
     }
     
+    static func getRegionCodes() -> [String] {
+        var codes = ["82", "86", "89", "92"]
+        for element in 1...78 {
+            let stringElement = String(element)
+            codes.append(stringElement)
+        }
+        return codes
+    }
 }
