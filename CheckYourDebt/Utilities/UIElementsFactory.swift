@@ -33,4 +33,13 @@ struct UIElementsFactory {
         sv.spacing = 20
         return sv
     }
+    
+    static func makeAlert(_ vc: UIViewController, title: String?, message: String?) {
+        let alert = UIAlertController(
+            title: title, message: message, preferredStyle: .alert
+        )
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        vc.present(alert, animated: true)
+    }
 }

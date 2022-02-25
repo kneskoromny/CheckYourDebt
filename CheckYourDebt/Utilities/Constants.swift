@@ -44,4 +44,7 @@ struct K {
         }
         return codes
     }
+    static func getAlphabet() -> String {
+        return "йцукенгшщзхъфывапролджэячсмитьбю"
+    }
 }

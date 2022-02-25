@@ -61,6 +61,19 @@ final class InputViewController: UIViewController {
     
     @objc func action() {
         print("btn pressed")
+        if viewModel.checkedEmptyFields(
+            firstNameTF, secondNameTF, lastNameTF, regionTF, birthTF
+        )
+            && viewModel.checkedLanguage(firstNameTF, secondNameTF, lastNameTF)
+            && viewModel.checkedRegion(regionTF)
+            && viewModel.checkedDate(birthTF) {
+            
+            print("all fields checked")
+        } else {
+            UIElementsFactory.makeAlert(
+                self, title: "Ошибка", message: "Проверьте введенные данные!"
+            )
+        }
     }
 }
 // MARK: - Text Field Delegate
