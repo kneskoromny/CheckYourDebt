@@ -29,8 +29,6 @@ class ResultCell: UITableViewCell {
         stackView.addArrangedSubview(mainLbl)
         stackView.addArrangedSubview(secondaryLbl)
         
-        stackView.distribution = .fillEqually
-        
         contentView.addSubview(stackView)
         stackView.topAnchor.constraint(equalTo: contentView.topAnchor)
             .isActive = true

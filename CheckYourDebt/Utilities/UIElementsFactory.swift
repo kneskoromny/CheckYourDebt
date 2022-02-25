@@ -31,6 +31,7 @@ struct UIElementsFactory {
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.axis = axis
         sv.spacing = 20
+        sv.distribution = .fillEqually
         return sv
     }
     
