@@ -28,13 +28,7 @@ final class InputViewController: UIViewController {
         super.viewDidLoad()
         
         configureLayout()
-        firstNameTF.delegate = self
-        
-        
     }
-    
-    // MARK: - UI actions
-    
     
     // MARK: - Methods
     private func configureLayout() {
@@ -61,15 +55,19 @@ final class InputViewController: UIViewController {
     }
     
     @objc func action() {
-        
+        // TODO: добавить спиннер
         viewModel.getToken(
             firName: "Антон", secName: "Сергеевич", lasName: "Нескоромный", reg: "51", birth: "22.02.1992") { task in
             sleep(5)
             self.viewModel.getResult(for: task) { data in
                 
                 DispatchQueue.main.async {
-                    
-                    let detailsViewModel = DetailsViewModel(data: data)
+                    guard let info = data?.response?.result?.first?.result else {
+                        // TODO: добавить алерт, что долгов нет
+                        print("No data")
+                        return
+                    }
+                    let detailsViewModel = DetailsViewModel(details: info)
                     let detailsVC = DetailsViewController()
                     detailsVC.viewModel = detailsViewModel
                     
@@ -77,9 +75,6 @@ final class InputViewController: UIViewController {
                 }
             }
         }
-        
-        
-        
 //        if viewModel.checkedEmptyFields(
 //            firstNameTF, secondNameTF, lastNameTF, regionTF, birthTF
 //        )
@@ -103,25 +98,6 @@ final class InputViewController: UIViewController {
 //            )
 //        }
     }
-//    func processDownload(
-//        firName: String?, secName: String?, lasName: String?, reg: String?, birth: String?) async {
-//            let task = await viewModel.getToken(
-//                firName: firName, secName: secName, lasName: lasName, reg: reg, birth: birth
-//            )
-//            let info = await viewModel.getResult(for: task)
-//            print("info: \(info)")
-//    }
 }
 
-// MARK: - Text Field Delegate
-extension InputViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let textFieldText = textField.text ?? ""
-        let text = (textFieldText as NSString).replacingCharacters(in: range, with: string)
-        
-        //if textField == firstNameTF { firName = text }
-        
-        return true
-    }
-}
 

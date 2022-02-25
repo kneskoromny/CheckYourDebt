@@ -18,8 +18,11 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(viewModel.data)
-        
+        viewModel.details.bind { [weak self] messages in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
         tableView.dataSource = self
         
         configureLayout()
@@ -27,24 +30,33 @@ class DetailsViewController: UIViewController {
     
     private func configureLayout() {
         view.addSubview(tableView)
-        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        tableView.topAnchor.constraint(
+            equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40
+        ).isActive = true
+        tableView.bottomAnchor.constraint(
+            equalTo: view.safeAreaLayoutGuide.bottomAnchor
+        ).isActive = true
+        tableView.leadingAnchor.constraint(
+            equalTo: view.leadingAnchor, constant: 20
+        ).isActive = true
+        tableView.trailingAnchor.constraint(
+            equalTo: view.trailingAnchor, constant: -20
+        ).isActive = true
     }
 }
+
 // MARK: - Table view data source
 extension DetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return viewModel.details.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as! ResultCell
-        cell.mainLbl.text = "dkjfnksdvnkjsnkjng"
-        cell.secondaryLbl.text = "djfnkajwnkjangkjen;fkjfn"
+        let info = viewModel.details.value[indexPath.row]
+        
+        cell.mainLbl.text = info.name
+        cell.secondaryLbl.text = info.subject
         return cell
-    }
-    
-    
+    }   
 }

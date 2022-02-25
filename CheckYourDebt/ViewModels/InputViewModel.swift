@@ -9,15 +9,14 @@ import UIKit
 
 struct InputViewModel {
     
+    // MARK: - Dependencies
     private let networkService: NetworkService
-    
     
     init(networkService: NetworkService = StandardNetworkService()) {
         self.networkService = networkService
     }
     
     // MARK: - Get data
-    
     func getToken(
         firName: String?, secName: String?, lasName: String?, reg: String?, birth: String?, completion: @escaping (String?) -> Void) {
             
@@ -31,7 +30,6 @@ struct InputViewModel {
                 
                 switch result {
                 case .success(let data):
-                    print(data)
                     completion(data.response?.task)
                 case .failure(let error):
                     print(error)
@@ -41,6 +39,7 @@ struct InputViewModel {
         }
     
     func getResult(for task: String?, completion: @escaping (ResponseModel?) -> Void) {
+        
         guard let t = task else { return }
         let queries = QueryFactory.makeResultQueries(task: t)
         let endPoint = StandardEndpoint(path: K.Path.result, queryItems: queries)
@@ -50,7 +49,6 @@ struct InputViewModel {
             
             switch result {
             case .success(let data):
-                print(data)
                 completion(data)
             case .failure(let error):
                 print(error)
@@ -69,6 +67,7 @@ struct InputViewModel {
         }
         return result
     }
+    
     func checkedLanguage(_ textFields: UITextField...) -> Bool {
         var result = true
         let alphabet = K.getAlphabet()
