@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F740467427C8F7BF00AFF3FD /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F740467327C8F7BF00AFF3FD /* DetailsViewModel.swift */; };
+		F740467727C8FE8000AFF3FD /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F740467627C8FE8000AFF3FD /* ResultCell.swift */; };
 		F7F4FA2F27C7687700EF9022 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA2E27C7687700EF9022 /* AppDelegate.swift */; };
 		F7F4FA3127C7687700EF9022 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA3027C7687700EF9022 /* SceneDelegate.swift */; };
 		F7F4FA3327C7687700EF9022 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA3227C7687700EF9022 /* InputViewController.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		F740467327C8F7BF00AFF3FD /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		F740467627C8FE8000AFF3FD /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		F7F4FA2B27C7687700EF9022 /* CheckYourDebt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckYourDebt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F4FA2E27C7687700EF9022 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7F4FA3027C7687700EF9022 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F740467527C8FE5900AFF3FD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F740467627C8FE8000AFF3FD /* ResultCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F7F4FA2227C7687700EF9022 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 			children = (
 				F7F4FA2E27C7687700EF9022 /* AppDelegate.swift */,
 				F7F4FA3027C7687700EF9022 /* SceneDelegate.swift */,
+				F740467527C8FE5900AFF3FD /* Views */,
 				F7F4FA5227C797B800EF9022 /* Models */,
 				F7F4FA4B27C7892500EF9022 /* Utilities */,
 				F7F4FA4627C76AF200EF9022 /* Networking */,
@@ -219,6 +230,7 @@
 				F7F4FA4D27C7893800EF9022 /* Constants.swift in Sources */,
 				F7F4FA4427C769FC00EF9022 /* InputViewModel.swift in Sources */,
 				F7F4FA5627C7B79000EF9022 /* UIElementsFactory.swift in Sources */,
+				F740467727C8FE8000AFF3FD /* ResultCell.swift in Sources */,
 				F7F4FA4F27C7918800EF9022 /* RequestFactory.swift in Sources */,
 				F7F4FA5827C8A94100EF9022 /* Box.swift in Sources */,
 				F7F4FA5D27C8E7B800EF9022 /* DetailsViewController.swift in Sources */,

@@ -42,4 +42,19 @@ struct UIElementsFactory {
         alert.addAction(action)
         vc.present(alert, animated: true)
     }
+    
+    static func makeTableView() -> UITableView {
+        let tv = UITableView()
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.register(ResultCell.self, forCellReuseIdentifier: "resultCell")
+        return tv
+    }
+    
+    static func makeLbl(fontSize: CGFloat) -> UILabel {
+        let l = UILabel()
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = UIFont(name: "Menlo", size: fontSize)
+        l.numberOfLines = 0
+        return l
+    }
 }

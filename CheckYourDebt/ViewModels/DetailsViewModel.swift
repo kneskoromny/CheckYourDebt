@@ -11,6 +11,8 @@ struct DetailsViewModel {
     
     var data: ResponseModel?
     
+    let details: Box<[Info]> = Box([])
+    
     init(data: ResponseModel?) {
         self.data = data
     }
