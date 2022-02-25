@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F740467427C8F7BF00AFF3FD /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F740467327C8F7BF00AFF3FD /* DetailsViewModel.swift */; };
 		F7F4FA2F27C7687700EF9022 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA2E27C7687700EF9022 /* AppDelegate.swift */; };
 		F7F4FA3127C7687700EF9022 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA3027C7687700EF9022 /* SceneDelegate.swift */; };
 		F7F4FA3327C7687700EF9022 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA3227C7687700EF9022 /* InputViewController.swift */; };
@@ -22,9 +23,11 @@
 		F7F4FA5427C797FB00EF9022 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA5327C797FB00EF9022 /* ResponseModel.swift */; };
 		F7F4FA5627C7B79000EF9022 /* UIElementsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA5527C7B79000EF9022 /* UIElementsFactory.swift */; };
 		F7F4FA5827C8A94100EF9022 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA5727C8A94100EF9022 /* Box.swift */; };
+		F7F4FA5D27C8E7B800EF9022 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4FA5C27C8E7B800EF9022 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F740467327C8F7BF00AFF3FD /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		F7F4FA2B27C7687700EF9022 /* CheckYourDebt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckYourDebt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F4FA2E27C7687700EF9022 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7F4FA3027C7687700EF9022 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		F7F4FA5327C797FB00EF9022 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		F7F4FA5527C7B79000EF9022 /* UIElementsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElementsFactory.swift; sourceTree = "<group>"; };
 		F7F4FA5727C8A94100EF9022 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		F7F4FA5C27C8E7B800EF9022 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				F7F4FA3227C7687700EF9022 /* InputViewController.swift */,
+				F7F4FA5C27C8E7B800EF9022 /* DetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				F7F4FA4327C769FC00EF9022 /* InputViewModel.swift */,
+				F740467327C8F7BF00AFF3FD /* DetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -215,6 +221,8 @@
 				F7F4FA5627C7B79000EF9022 /* UIElementsFactory.swift in Sources */,
 				F7F4FA4F27C7918800EF9022 /* RequestFactory.swift in Sources */,
 				F7F4FA5827C8A94100EF9022 /* Box.swift in Sources */,
+				F7F4FA5D27C8E7B800EF9022 /* DetailsViewController.swift in Sources */,
+				F740467427C8F7BF00AFF3FD /* DetailsViewModel.swift in Sources */,
 				F7F4FA5427C797FB00EF9022 /* ResponseModel.swift in Sources */,
 				F7F4FA4A27C781E700EF9022 /* QueryFactory.swift in Sources */,
 			);

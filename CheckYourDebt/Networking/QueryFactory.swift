@@ -9,10 +9,10 @@ import Foundation
 
 struct QueryFactory {
     
-    static func makePersonQueries(region: String,
-                                  firstName: String,
+    static func makePersonQueries(firstName: String,
                                   secondName: String,
                                   lastName: String,
+                                  region: String,
                                   birthDate: String) -> [URLQueryItem] {
              
         let token = URLQueryItem(name: K.QueryNames.token, value: K.token)

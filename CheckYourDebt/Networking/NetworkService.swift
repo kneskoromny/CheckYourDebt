@@ -8,22 +8,22 @@
 import Foundation
 
 protocol NetworkService {
-    var request: RequestFactory { get }
+    //var request: RequestFactory { get }
     
     func getData<T: Codable>(
-        _ resource: T.Type, completion: @escaping (Result<T, Error>) -> Void
+        _ resource: T.Type, from request: RequestFactory, completion: @escaping (Result<T, Error>) -> Void
     )
 }
 
 struct StandardNetworkService: NetworkService {
-    var request: RequestFactory
+    //var request: RequestFactory
     
-    init(request: RequestFactory) {
-        self.request = request
-    }
+//    init(request: RequestFactory) {
+//        self.request = request
+//    }
     
     func getData<T>(
-        _ resource: T.Type, completion: @escaping (Result<T, Error>) -> Void
+        _ resource: T.Type, from request: RequestFactory, completion: @escaping (Result<T, Error>) -> Void
     ) where T: Codable {
         
         let request = request.makeRequest()

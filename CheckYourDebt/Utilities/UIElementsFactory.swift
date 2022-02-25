@@ -11,7 +11,7 @@ struct UIElementsFactory {
     static func makeTF(placeholder: String) -> UITextField {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        //tf.text = ""
+        tf.text = ""
         tf.placeholder = placeholder
         tf.borderStyle = .roundedRect
         return tf

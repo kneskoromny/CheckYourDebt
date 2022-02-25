@@ -30,6 +30,7 @@ final class InputViewController: UIViewController {
         configureLayout()
         firstNameTF.delegate = self
         
+        
     }
     
     // MARK: - UI actions
@@ -60,22 +61,58 @@ final class InputViewController: UIViewController {
     }
     
     @objc func action() {
-        print("btn pressed")
-        if viewModel.checkedEmptyFields(
-            firstNameTF, secondNameTF, lastNameTF, regionTF, birthTF
-        )
-            && viewModel.checkedLanguage(firstNameTF, secondNameTF, lastNameTF)
-            && viewModel.checkedRegion(regionTF)
-            && viewModel.checkedDate(birthTF) {
-            
-            print("all fields checked")
-        } else {
-            UIElementsFactory.makeAlert(
-                self, title: "Ошибка", message: "Проверьте введенные данные!"
-            )
+        
+        viewModel.getToken(
+            firName: "Антон", secName: "Сергеевич", lasName: "Нескоромный", reg: "51", birth: "22.02.1992") { task in
+            sleep(5)
+            self.viewModel.getResult(for: task) { data in
+                
+                DispatchQueue.main.async {
+                    
+                    let detailsViewModel = DetailsViewModel(data: data)
+                    let detailsVC = DetailsViewController()
+                    detailsVC.viewModel = detailsViewModel
+                    
+                    self.present(detailsVC, animated: true, completion: nil)
+                }
+            }
         }
+        
+        
+        
+//        if viewModel.checkedEmptyFields(
+//            firstNameTF, secondNameTF, lastNameTF, regionTF, birthTF
+//        )
+//            && viewModel.checkedLanguage(firstNameTF, secondNameTF, lastNameTF)
+//            && viewModel.checkedRegion(regionTF)
+//            && viewModel.checkedDate(birthTF) {
+//
+//            print("all fields checked")
+//
+//            viewModel.getToken(
+//                firName: "Кирилл", secName: "Сергеевич", lasName: "Нескоромный", reg: "51", birth: "13.04.1985") { task in
+//
+//                self.viewModel.getResult(for: task) { info in
+//                    print(info)
+//                }
+//            }
+//
+//        } else {
+//            UIElementsFactory.makeAlert(
+//                self, title: "Ошибка", message: "Проверьте введенные данные!"
+//            )
+//        }
     }
+//    func processDownload(
+//        firName: String?, secName: String?, lasName: String?, reg: String?, birth: String?) async {
+//            let task = await viewModel.getToken(
+//                firName: firName, secName: secName, lasName: lasName, reg: reg, birth: birth
+//            )
+//            let info = await viewModel.getResult(for: task)
+//            print("info: \(info)")
+//    }
 }
+
 // MARK: - Text Field Delegate
 extension InputViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
