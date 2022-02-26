@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class InputViewController: UIViewController {
+class InputViewController: UIViewController {
     
     // MARK: - UI elements
     lazy var stackView = UIElementsFactory.makeStackView(axis: .vertical)
@@ -29,6 +29,9 @@ final class InputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.title.bind { title in
+            self.navigationItem.title = title
+        }
         configureLayout()
     }
     
@@ -50,7 +53,7 @@ final class InputViewController: UIViewController {
                 
                 switch result {
                 case .success(let task):
-                    // время, необходимое для обработки запроса по токену
+                    // ориентировочное время, необходимое для обработки запроса по токену
                     sleep(10)
                     self.viewModel.getResult(for: task) { [weak self] data in
                         
@@ -63,11 +66,7 @@ final class InputViewController: UIViewController {
                                 )
                                 return
                             }
-                            let detailsViewModel = DetailsViewModel(details: info)
-                            let detailsVC = DetailsViewController()
-                            detailsVC.viewModel = detailsViewModel
-                            
-                            self.present(detailsVC, animated: true, completion: nil)
+                            self.viewModel.routeToDetails(self, info: info)
                         }
                     }
                 case .failure(let error):
@@ -87,6 +86,8 @@ final class InputViewController: UIViewController {
 // MARK: - Layout
 extension InputViewController {
     private func configureLayout() {
+        view.backgroundColor = .systemBackground
+        
         view.addSubview(stackView)
         stackView.heightAnchor.constraint(
             equalTo: view.heightAnchor, multiplier: 0.35).isActive = true

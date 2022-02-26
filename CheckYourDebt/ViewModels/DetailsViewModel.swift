@@ -8,6 +8,7 @@
 
 struct DetailsViewModel {
     
+    let title = Box(K.appName)
     let details: Box<[Info]> = Box([])
     
     init(details: [Info]) {

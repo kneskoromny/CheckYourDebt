@@ -7,7 +7,9 @@
 
 import UIKit
 
-struct InputViewModel {
+class InputViewModel {
+    
+    let title = Box(K.appName)
     
     // MARK: - Dependencies
     private let networkService: NetworkService
@@ -106,5 +108,15 @@ struct InputViewModel {
         let regex = "[0-9]{2}[.][0-9]{2}[.][0-9]{4}"
         let dateTest = NSPredicate(format: "SELF MATCHES %@", regex)
         return dateTest.evaluate(with: text)
+    }
+    
+    // MARK: - Route
+    func routeToDetails(_ vc: UIViewController, info: [Info]) {
+        let detailsViewModel = DetailsViewModel(details: info)
+        let detailsVC = DetailsViewController()
+        detailsVC.viewModel = detailsViewModel
+        let navController = UINavigationController(rootViewController: detailsVC)
+        
+        vc.present(navController, animated: true, completion: nil)
     }
 }

@@ -15,20 +15,31 @@ class DetailsViewController: UIViewController {
     // MARK: - Dependencies
     var viewModel: DetailsViewModel!
     
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel.details.bind { [weak self] messages in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
         tableView.dataSource = self
         
         configureLayout()
+        bind()
     }
     
+    private func bind() {
+        viewModel.title.bind { title in
+            self.navigationItem.title = title
+        }
+        viewModel.details.bind { messages in
+            self.tableView.reloadData()
+        }
+    }
+}
+
+// MARK: - Layout
+extension DetailsViewController {
     private func configureLayout() {
+        navigationItem.titleView?.backgroundColor = K.Colors.customGreen
+        view.backgroundColor = .systemBackground
+        
         view.addSubview(tableView)
         tableView.topAnchor.constraint(
             equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40
