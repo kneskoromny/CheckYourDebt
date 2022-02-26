@@ -30,6 +30,7 @@ struct InputViewModel {
                 
                 switch result {
                 case .success(let data):
+                    print(data.response?.task)
                     completion(data.response?.task)
                 case .failure(let error):
                     print(error)

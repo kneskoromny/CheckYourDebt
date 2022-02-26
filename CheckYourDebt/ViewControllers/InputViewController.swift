@@ -12,6 +12,8 @@ final class InputViewController: UIViewController {
     // MARK: - UI elements
     lazy var stackView = UIElementsFactory.makeStackView(axis: .vertical)
     
+    var spinner = UIElementsFactory.makeSpinner()
+    
     lazy var firstNameTF = UIElementsFactory.makeTF(placeholder: "Имя")
     lazy var secondNameTF = UIElementsFactory.makeTF(placeholder: "Отчество")
     lazy var lastNameTF = UIElementsFactory.makeTF(placeholder: "Фамилия")
@@ -42,13 +44,18 @@ final class InputViewController: UIViewController {
             && viewModel.checkedDate(birthTF) {
             
             print("all fields checked")
+            spinner.isHidden = false
+            
             viewModel.getToken(
                 firName: firstNameTF.text, secName: secondNameTF.text, lasName: lastNameTF.text, reg: regionTF.text, birth: birthTF.text
             ) { task in
-                sleep(5)
-                self.viewModel.getResult(for: task) { data in
+                // TODO: таймер
+                sleep(10)
+                self.viewModel.getResult(for: task) { [weak self] data in
                     
+                    guard let self = self else { return }
                     DispatchQueue.main.async {
+                        self.spinner.isHidden = true
                         guard let info = data?.response?.result?.first?.result else {
                             UIElementsFactory.makeAlert(
                                 self, title: "Нет данных", message: "Похоже, что у вас нет долгов!"
@@ -99,6 +106,12 @@ extension InputViewController {
             equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
         sendBtn.heightAnchor.constraint(
             equalTo: sendBtn.widthAnchor, multiplier: 0.25).isActive = true
+        
+        view.addSubview(spinner)
+        spinner.centerXAnchor.constraint(
+            equalTo: view.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(
+            equalTo: view.centerYAnchor).isActive = true
     }
 }
 

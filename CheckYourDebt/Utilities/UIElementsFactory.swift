@@ -58,4 +58,13 @@ struct UIElementsFactory {
         l.numberOfLines = 0
         return l
     }
+    
+    static func makeSpinner() -> UIActivityIndicatorView {
+        let s = UIActivityIndicatorView()
+        s.translatesAutoresizingMaskIntoConstraints = false
+        s.style = .large
+        s.startAnimating()
+        s.isHidden = true
+        return s
+    }
 }

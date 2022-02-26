@@ -18,7 +18,6 @@ class ResultCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         configureLayout()
-        contentView.backgroundColor = K.Colors.customBlue
     }
     
     required init?(coder: NSCoder) {
@@ -30,14 +29,14 @@ class ResultCell: UITableViewCell {
         stackView.addArrangedSubview(secondaryLbl)
         
         contentView.addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: contentView.topAnchor)
-            .isActive = true
-        stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
-            .isActive = true
-        stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-            .isActive = true
-        stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-            .isActive = true
+        stackView.topAnchor.constraint(
+            equalTo: contentView.topAnchor, constant: 8).isActive = true
+        stackView.leadingAnchor.constraint(
+            equalTo: contentView.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(
+            equalTo: contentView.trailingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(
+            equalTo: contentView.bottomAnchor, constant: -8).isActive = true
     }
 
 }
