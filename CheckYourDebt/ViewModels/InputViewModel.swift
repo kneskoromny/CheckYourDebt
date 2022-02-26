@@ -18,26 +18,25 @@ struct InputViewModel {
     
     // MARK: - Get data
     func getToken(
-        firName: String?, secName: String?, lasName: String?, reg: String?, birth: String?, completion: @escaping (String?) -> Void) {
+        firName: String?, secName: String?, lasName: String?, reg: String?, birth: String?, completion: @escaping (Result<String?, Error>) -> Void
+    ) {
+        
+        let queries = QueryFactory.makePersonQueries(
+            firstName: firName!, secondName: secName!, lastName: lasName!, region: reg!, birthDate: birth!
+        )
+        let endPoint = StandardEndpoint(path: K.Path.search, queryItems: queries)
+        let request = StandardRequest(endpoint: endPoint)
+        
+        networkService.getData(ResponseModel.self, from: request) { result in
             
-            let queries = QueryFactory.makePersonQueries(
-                firstName: firName!, secondName: secName!, lastName: lasName!, region: reg!, birthDate: birth!
-            )
-            let endPoint = StandardEndpoint(path: K.Path.search, queryItems: queries)
-            let request = StandardRequest(endpoint: endPoint)
-            
-            networkService.getData(ResponseModel.self, from: request) { result in
-                
-                switch result {
-                case .success(let data):
-                    print(data.response?.task)
-                    completion(data.response?.task)
-                case .failure(let error):
-                    print(error)
-                    completion(nil)
-                }
+            switch result {
+            case .success(let data):
+                completion(.success(data.response?.task))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
+    }
     
     func getResult(for task: String?, completion: @escaping (ResponseModel?) -> Void) {
         

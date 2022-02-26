@@ -34,8 +34,6 @@ final class InputViewController: UIViewController {
     
     // MARK: - Methods
     @objc func action() {
-        // TODO: добавить спиннер
-        
         if viewModel.checkedEmptyFields(
             firstNameTF, secondNameTF, lastNameTF, regionTF, birthTF
         )
@@ -48,26 +46,34 @@ final class InputViewController: UIViewController {
             
             viewModel.getToken(
                 firName: firstNameTF.text, secName: secondNameTF.text, lasName: lastNameTF.text, reg: regionTF.text, birth: birthTF.text
-            ) { task in
-                // TODO: таймер
-                sleep(10)
-                self.viewModel.getResult(for: task) { [weak self] data in
-                    
-                    guard let self = self else { return }
-                    DispatchQueue.main.async {
-                        self.spinner.isHidden = true
-                        guard let info = data?.response?.result?.first?.result else {
-                            UIElementsFactory.makeAlert(
-                                self, title: "Нет данных", message: "Похоже, что у вас нет долгов!"
-                            )
-                            return
-                        }
-                        let detailsViewModel = DetailsViewModel(details: info)
-                        let detailsVC = DetailsViewController()
-                        detailsVC.viewModel = detailsViewModel
+            ) { result in
+                
+                switch result {
+                case .success(let task):
+                    // время, необходимое для обработки запроса по токену
+                    sleep(10)
+                    self.viewModel.getResult(for: task) { [weak self] data in
                         
-                        self.present(detailsVC, animated: true, completion: nil)
+                        guard let self = self else { return }
+                        DispatchQueue.main.async {
+                            self.spinner.isHidden = true
+                            guard let info = data?.response?.result?.first?.result else {
+                                UIElementsFactory.makeAlert(
+                                    self, title: "Нет данных", message: "Похоже, что у вас нет долгов!"
+                                )
+                                return
+                            }
+                            let detailsViewModel = DetailsViewModel(details: info)
+                            let detailsVC = DetailsViewController()
+                            detailsVC.viewModel = detailsViewModel
+                            
+                            self.present(detailsVC, animated: true, completion: nil)
+                        }
                     }
+                case .failure(let error):
+                    UIElementsFactory.makeAlert(
+                        self, title: "Ошибка", message: error.localizedDescription
+                    )
                 }
             }
         } else {
