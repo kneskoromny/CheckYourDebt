@@ -17,5 +17,6 @@
 
 
 ### Скриншоты
-![Simulator Screen Shot - iPhone 12 - 2022-02-27 at 14 57](https://user-images.githubusercontent.com/25160645/155881875-5579ea3a-1e9b-4616-9665-47bbfc938295.png)
 ![Simulator Screen Shot - iPhone 12 - 2022-02-27 at 14 56](https://user-images.githubusercontent.com/25160645/155881876-32b8db0b-bd2f-496e-aec2-1386d5e8220e.png)
+![Simulator Screen Shot - iPhone 12 - 2022-02-27 at 14 57](https://user-images.githubusercontent.com/25160645/155881875-5579ea3a-1e9b-4616-9665-47bbfc938295.png)
+
