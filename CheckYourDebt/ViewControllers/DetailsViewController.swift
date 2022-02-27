@@ -7,10 +7,10 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+final class DetailsViewController: UIViewController {
     
     // MARK: - UI elements
-    lazy var tableView = UIElementsFactory.makeTableView()
+    private let tableView = UIElementsFactory.makeTableView()
     
     // MARK: - Dependencies
     var viewModel: DetailsViewModel!

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultCell: UITableViewCell {
+final class ResultCell: UITableViewCell {
     
     lazy var stackView = UIElementsFactory.makeStackView(axis: .horizontal)
     lazy var mainLbl = UIElementsFactory.makeLbl(fontSize: 20)

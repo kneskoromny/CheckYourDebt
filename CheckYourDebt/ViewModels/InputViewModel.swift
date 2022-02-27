@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InputViewModel {
+struct InputViewModel {
     
     let title = Box(K.Titles.main)
     

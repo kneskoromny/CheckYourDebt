@@ -7,20 +7,20 @@
 
 import UIKit
 
-class InputViewController: UIViewController {
+final class InputViewController: UIViewController {
     
     // MARK: - UI elements
-    lazy var stackView = UIElementsFactory.makeStackView(axis: .vertical)
+    private let stackView = UIElementsFactory.makeStackView(axis: .vertical)
     
-    var spinner = UIElementsFactory.makeSpinner()
+    private let firstNameTF = UIElementsFactory.makeTF(placeholder: "Имя")
+    private let secondNameTF = UIElementsFactory.makeTF(placeholder: "Отчество")
+    private let lastNameTF = UIElementsFactory.makeTF(placeholder: "Фамилия")
+    private let regionTF = UIElementsFactory.makeTF(placeholder: "Регион")
+    private let birthTF = UIElementsFactory.makeTF(placeholder: "Дата рождения (чч.мм.гггг)")
     
-    lazy var firstNameTF = UIElementsFactory.makeTF(placeholder: "Имя")
-    lazy var secondNameTF = UIElementsFactory.makeTF(placeholder: "Отчество")
-    lazy var lastNameTF = UIElementsFactory.makeTF(placeholder: "Фамилия")
-    lazy var regionTF = UIElementsFactory.makeTF(placeholder: "Регион")
-    lazy var birthTF = UIElementsFactory.makeTF(placeholder: "Дата рождения (чч.мм.гггг)")
+    private let sendBtn = UIElementsFactory.makeBtn(action: #selector(action))
     
-    lazy var sendBtn = UIElementsFactory.makeBtn(action: #selector(action))
+    lazy var spinner = UIElementsFactory.makeSpinner()
     
     // MARK: - Dependencies
     private let viewModel = InputViewModel()
