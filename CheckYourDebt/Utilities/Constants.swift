@@ -7,15 +7,15 @@
 
 import UIKit
 
-struct K {
+enum K {
     
     static let token = "zwxQ6FzoufZs"
-    //static let appName = "ПроверьДолги👀"
-    struct Titles {
+    
+    enum Titles {
         static let main = "ПроверьДолги 👀"
         static let detail = "Информация 📃"
     }
-    struct QueryNames {
+    enum QueryNames {
         static let token = "token"
         static let region = "region"
         static let firName = "firstname"
@@ -25,7 +25,7 @@ struct K {
         static let task = "task"
     }
     
-    struct Colors {
+    enum Colors {
         static let customGreen = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         static let customBlue = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
     }
