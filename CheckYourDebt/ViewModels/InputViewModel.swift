@@ -9,7 +9,7 @@ import UIKit
 
 class InputViewModel {
     
-    let title = Box(K.appName)
+    let title = Box(K.Titles.main)
     
     // MARK: - Dependencies
     private let networkService: NetworkService
@@ -115,7 +115,10 @@ class InputViewModel {
         let detailsViewModel = DetailsViewModel(details: info)
         let detailsVC = DetailsViewController()
         detailsVC.viewModel = detailsViewModel
+        
         let navController = UINavigationController(rootViewController: detailsVC)
+        let appearance = navController.makeAppearance()
+        navController.navigationBar.scrollEdgeAppearance = appearance
         
         vc.present(navController, animated: true, completion: nil)
     }

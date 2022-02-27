@@ -19,19 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let inputVC = InputViewController()
         let navController = UINavigationController(rootViewController: inputVC)
-        navController.navigationBar.prefersLargeTitles = true
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = K.Colors.customGreen
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        navController.navigationBar.tintColor = .white
-        navController.navigationBar.standardAppearance = appearance
-        navController.navigationBar.compactAppearance = appearance
+        let appearance = navController.makeAppearance()
         navController.navigationBar.scrollEdgeAppearance = appearance
         
-        window.rootViewController = navController // Your initial view controller.
+        window.rootViewController = navController
         window.makeKeyAndVisible()
         self.window = window
     }

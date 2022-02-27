@@ -65,7 +65,8 @@ class InputViewController: UIViewController {
                         guard let self = self else { return }
                         DispatchQueue.main.async {
                             self.spinner.isHidden = true
-                            guard let info = data?.response?.result?.first?.result else {
+                            guard let info = data?.response?.result?.first?.result,
+                                  !info.isEmpty else {
                                 UIElementsFactory.makeAlert(
                                     self, title: "Нет данных", message: "Похоже, что у вас нет долгов!"
                                 )
@@ -97,7 +98,7 @@ extension InputViewController {
         stackView.heightAnchor.constraint(
             equalTo: view.heightAnchor, multiplier: 0.35).isActive = true
         stackView.topAnchor.constraint(
-            equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
+            equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         stackView.leadingAnchor.constraint(
             equalTo: view.leadingAnchor, constant: 40).isActive = true
         stackView.trailingAnchor.constraint(
@@ -111,7 +112,7 @@ extension InputViewController {
         
         view.addSubview(sendBtn)
         sendBtn.topAnchor.constraint(
-            equalTo: stackView.bottomAnchor, constant: 40).isActive = true
+            equalTo: stackView.bottomAnchor, constant: 20).isActive = true
         sendBtn.centerXAnchor.constraint(
             equalTo: view.centerXAnchor).isActive = true
         sendBtn.widthAnchor.constraint(

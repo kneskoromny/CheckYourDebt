@@ -19,7 +19,7 @@ struct UIElementsFactory {
     
     static func makeBtn(action: Selector) -> UIButton {
         var configuration = UIButton.Configuration.filled()
-        configuration.title = "Поиск"
+        configuration.title = "Проверить"
         configuration.baseBackgroundColor = K.Colors.customBlue
         let b = UIButton(configuration: configuration, primaryAction: nil)
         b.addTarget(self, action: action, for: .touchUpInside)

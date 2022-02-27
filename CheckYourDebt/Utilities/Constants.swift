@@ -10,8 +10,11 @@ import UIKit
 struct K {
     
     static let token = "zwxQ6FzoufZs"
-    static let appName = "ПроверьДолги👀"
-    
+    //static let appName = "ПроверьДолги👀"
+    struct Titles {
+        static let main = "ПроверьДолги 👀"
+        static let detail = "Информация 📃"
+    }
     struct QueryNames {
         static let token = "token"
         static let region = "region"
