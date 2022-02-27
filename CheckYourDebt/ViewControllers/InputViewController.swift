@@ -44,9 +44,7 @@ class InputViewController: UIViewController {
             && viewModel.checkedRegion(regionTF)
             && viewModel.checkedDate(birthTF) {
             
-            print("all fields checked")
             spinner.isHidden = false
-            
             viewModel.getToken(
                 firName: firstNameTF.text, secName: secondNameTF.text, lasName: lastNameTF.text, reg: regionTF.text, birth: birthTF.text
             ) { result in
