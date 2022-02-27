@@ -30,7 +30,14 @@ class InputViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel.title.bind { title in
-            self.navigationItem.title = title
+            self.navigationItem.title = ""
+            var charInd = 0.0
+            title.forEach { char in
+                Timer.scheduledTimer(withTimeInterval: 0.1 * charInd, repeats: false) { _ in
+                    self.navigationItem.title?.append(char)
+                }
+                charInd += 1
+            }
         }
         configureLayout()
     }
